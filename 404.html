@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>404 — Page Not Found</title>
+  <style>
+    :root{
+      --accent:#ff2a6d;
+      --accent-2:#ff7ac4;
+      --bg:#06070a;
+      --fg:#e8e8ea;
+      --muted:#a9abb3;
+    }
+    /* Background image (replace URL if you like) */
+    body{
+      margin:0;
+      min-height:100svh;
+      color:var(--fg);
+      background:
+        linear-gradient(180deg, rgba(6,7,10,.85), rgba(6,7,10,.94)),
+        url("https://images.unsplash.com/photo-1585079542156-2755d9c6c6e1?auto=format&fit=crop&w=1600&q=80")
+          center/cover no-repeat fixed;
+      display:grid;
+      place-items:center;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    .card{
+      max-width: 720px;
+      padding: clamp(1.25rem, 2vw, 2rem);
+      border-radius: 16px;
+      background: rgba(17,19,24,.55);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 40px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.06) inset;
+      text-align:center;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.35rem .75rem;
+      font-weight:600;
+      letter-spacing:.04em;
+      border-radius:999px;
+      color:var(--accent);
+      background: rgba(255,42,109,.12);
+      border:1px solid rgba(255,42,109,.35);
+      margin-bottom:1rem;
+    }
+    .code{
+      font-size: clamp(4rem, 12vw, 9rem);
+      line-height: 0.9;
+      margin: .25rem 0;
+      color: var(--accent);
+      text-shadow:
+        0 0 24px rgba(255,42,109,.55),
+        0 0 64px rgba(255,122,196,.35);
+      animation: glow 2.6s ease-in-out infinite alternate;
+    }
+    @keyframes glow{
+      from{ filter: drop-shadow(0 0 10px rgba(255,42,109,.45)); opacity:.95; }
+      to  { filter: drop-shadow(0 0 24px rgba(255,122,196,.55)); opacity:1; }
+    }
+    .title{
+      font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+      margin: .25rem 0 .75rem;
+    }
+    .desc{
+      color: var(--muted);
+      margin: 0 0 1.25rem;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      justify-content:center;
+      margin-top:1rem;
+    }
+    .btn{
+      --ring: rgba(255,42,109,.35);
+      padding:.85rem 1.1rem;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      color:var(--fg);
+      text-decoration:none;
+      font-weight:600;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px var(--ring);
+      border-color: rgba(255,255,255,.25);
+    }
+    .btn.primary{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border: none;
+      color: #0b0c10;
+      box-shadow: 0 10px 24px rgba(255,42,109,.35);
+    }
+    .hint{
+      margin-top:1.25rem;
+      font-size:.95rem;
+      color:var(--muted);
+      opacity:.85;
+    }
+    /* Respect users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .code{ animation: none; }
+      .btn, .btn:hover{ transition: none; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="notfound-title">
+    <span class="badge" aria-hidden="true">Error</span>
+    <div class="code" aria-hidden="true">404</div>
+    <h1 id="notfound-title" class="title">Page not found</h1>
+    <p class="desc">The page you’re looking for doesn’t exist or was moved.</p>
+    <div class="actions">
+      <a class="btn primary" href="/">Go to Homepage</a>
+      <a class="btn" href="javascript:history.back()">Go Back</a>
+      <a class="btn" href="/sitemap.xml">Sitemap</a>
+    </div>
+    <p class="hint">If you think this is an error, please contact support.</p>
+  </main>
+</body>
+</html>
