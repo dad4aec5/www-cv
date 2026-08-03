@@ -458,12 +458,12 @@
       document.getElementById('location').textContent = content.personalInfo.location;
       document.getElementById('current-year').textContent = new Date().getFullYear();
 
-      const base64String = "ZnJvbXdlYn5yMDB0fmNnMjkucnV+ZzAwbWFub2lk";
+      const base64String = "NzM4OH50dXRhLmlvfmcwMG1hbm9pZA==";
       const decodedString = atob(base64String);
-      const [p1, p2, domain, t1] = decodedString.split('~');
+      const [p1, domain, t1] = decodedString.split('~');
       const emailLink = document.getElementById("email");
-      emailLink.href = `mailto:${p2}@${domain}`;
-      emailLink.textContent = `${p2}@${domain}`;
+      emailLink.href = `mailto:${p1}@${domain}`;
+      emailLink.textContent = `${p1}@${domain}`;
 
       const tgLink = document.getElementById("phone");
       tgLink.href = `https://t.me/${t1}`;
